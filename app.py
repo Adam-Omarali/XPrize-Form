@@ -129,7 +129,7 @@ def researcher():
         db.session.add(values)
         db.session.commit()
         return redirect("/researcher2")
-    return render_template("researcher.html")
+    return render_template("researcher.html", test=session["user"])
 
 @app.route("/researcher2", methods=['GET', 'POST'])
 def researcher2():
