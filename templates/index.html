@@ -1,0 +1,41 @@
+
+{% extends "layout.html" %}
+
+{% block title %}
+    Help Us!
+{% endblock %}
+
+{% block main %}
+
+    <div class="dis-parent" style="justify-content: space-between;">
+      <img class="dis-child" src="/static/XPRIZE.png" style="margin: 4px;">
+      <h4 class="dis-child" style="padding: 30px;">Help Us Help XPrize!</h4>
+    </div>
+
+    <div class="horizontal"></div>
+    <h4 style="text-align: center;">Brief Intro: Learn About XPrize and How it's Changing the World!</h4>
+
+    <iframe src="https://www.youtube.com/embed/NwNaWsQnP3A" style="width:100%; height:350px"></iframe>
+
+    <div class="container">
+        <h1 style="text-align: center;">What describes you best?</h1>
+      <div class="row">
+        <button class="col btn btn-success btn-block" onclick="location.href='researcher';">Researcher</button>
+        <button class="col btn btn-success btn-block" onclick="location.href='technichal';">Technichal Employee</button>
+        <button class="col btn btn-success btn-block" onclick="location.href='cxo';">Company Executive</button>
+      </div>
+      <div class="row">
+        <button class="col btn btn-primary btn-block" onclick="location.href='graduate';">Graduate Student</button>
+        <button class="col btn btn-primary btn-block" onclick="location.href='university';">Undergraduate Student</button>
+        <button class="col btn btn-primary btn-block" onclick="location.href='highschool';">High School Student</button>
+      </div>
+      <div class="row">
+        <button class="col btn btn-dark btn-block" onclick="location.href='cxo';">Startup Founder</button>
+        <button class="col btn btn-dark" onclick="location.href='competition';">Competition Organizer</button>
+        <button class="col btn btn-dark btn-block" onclick="location.href='general';">Someone who wants to make a change!</button>
+      </div>
+    </div>
+
+    <h6 style="margin-top: 3%; text-align:center">This form is completely anonymous and any help is appreciated and will be rewarded with a prize at the end!</h6>
+
+{% endblock %}

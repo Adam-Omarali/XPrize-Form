@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block main %}
+        <a href="/tksxprize-results"><button class="btn btn-primary" style="margin: 10px;">Back</button></a>
+        <table>
+            <thead>
+                <th>Previously Know XPRIZE</th>
+                <th>Sign Up</th>
+                <th>Research</th>
+                <th>Geography</th>
+                <th>Incentives</th>
+                <th>Purpose</th>
+                <th>Mentor</th>
+                <th>How Often</th>
+                <th>Seperate Competition</th>
+                <th>Scale Research</th>
+                <th>Thoughts</th>
+            </thead>
+            {% for input in researcher %}
+                <tr>
+                    <td>{{ input.know }}</td>
+                    <td>{{ input.sign_up }}</td>
+                    <td>{{ input.research }}</td>
+                    <td>{{ input.geography }}</td>
+                    <td>{{ input.incentives }}</td>
+                    <td>{{ input.purpose }}</td>
+                    <td>{{ input.mentor }}</td>
+                    <td>{{ input.often }}</td>
+                    <td>{{ input.seperate_competition }}</td>
+                    <td>{{ input.develop_research }}</td>
+                    <td>{{ input.thoughts }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+{% endblock %}

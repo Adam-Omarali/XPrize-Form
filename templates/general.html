@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Questionnaire
+{% endblock %}
+
+{% block main %}
+        <div class="container">
+            <h3>Hi Future Elon! Thanks for taking the time to answer any questions you can!</h3>
+            <p style="color: grey;">Please answer as many questions as you can. We are not apart of XPrize, but we are trying to find ways to improve the contest so we can have higher quality submissions and improve the world. To go back to the home page, <a href="index2">click here.</a></p>
+            <div class="horizontal"></div>
+        </div>
+
+
+        <form class="" action="" method="POST">
+
+            <div class="form-group" style="width: 100%;">
+                <div class="dis-parent">  
+                    <div class="dis-child vertical"></div>      
+                    <h4 class="dis-child">#1</h4>
+                </div>
+                <div class="select">
+                    <select name="know" class="form-control">
+                        <option disabeled value="" selected>Did you know about XPrize before?</option>
+                        <option value="yes">I have heard about XPrize before</option>
+                        <option value="no">I did not know what XPrize was</option>
+                    </select>
+                </div>
+
+                <div class="dis-parent">  
+                    <div class="dis-child vertical"></div>      
+                    <h4 class="dis-child">#2</h4>
+                </div>
+                <div class="select">
+                    <select name="sign up" class="form-control">
+                        <option disabeled value="" selected>Would you sign up for XPrize?</option>
+                        <option value="yes">I would sign up for an XPrize competition</option>
+                        <option value="expertise">I would sign up if it is in my area of expertise</option>
+                        <option value="no">I would not sign up</option>
+                    </select>
+                </div>
+
+                <div class="dis-parent">  
+                    <div class="dis-child vertical"></div>      
+                    <h4 class="dis-child">#3</h4>
+                    <h5 class="dis-child">Select Up to Three: I would sign up if I had ...</h5>
+                </div>
+
+                <div class="form-group select">
+                    <div class="form-check">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="select" value="Technichal Support"> Technichal Support (Like a researcher)
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="select" value="Money"> Money / Support Funding
+                        </div>
+                        <div class="form-check"> 
+                            <input class="form-check-input" type="checkbox" name="select" value="Time"> More Time
+                        </div>
+                        <div class="form-check"> 
+                            <input class="form-check-input" type="checkbox" name="select" value="Team"> A team I previously knew
+                        </div>
+                        <div class="form-check"> 
+                            <input class="form-check-input" type="checkbox" name="select" value="Mentor"> Our team had a mentor to consitently help
+                        </div>
+                        <div class="form-check"> 
+                            <input class="form-check-input" type="checkbox" name="select" value="Direction"> A clear direction or actionable steps to follow
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dis-parent">  
+                    <div class="dis-child vertical"></div>      
+                    <h4 class="dis-child">#4</h4>
+                </div>
+                <div class="select">
+                    <select name="all" class="form-control">
+                        <option disabeled value="" selected>Would you all of the above help you during the competition?</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <input class="btn btn-dark" type=submit value=Submit>
+            </div>
+        </form>
+{% endblock %}

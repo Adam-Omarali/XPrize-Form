@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block main %}
+        <a href="/tksxprize-results"><button class="btn btn-primary" style="margin: 10px;">Back</button></a>
+        <table>
+            <thead>
+                <th>Person</th>
+                <th>Geography</th>
+                <th>Know of XPrize</th>
+                <th>Sign Up</th>
+                <th>Factors</th>
+                <th>All Factors</th>
+                <th>Help</th>
+                <th>Funding</th>
+                <th>Programs</th>
+                <th>Thoughts</th>
+            </thead>
+            {% for input in general %}
+                <tr>
+                    <td>{{ input.person }}</td>
+                    <td>{{ input.geography }}</td>
+                    <td>{{ input.know }}</td>
+                    <td>{{ input.sign_up }}</td>
+                    <td>{{ input.factors }}</td>
+                    <td>{{ input.all_factors }}</td>
+                    <td>{{ input.support_others }}</td>
+                    <td>{{ input.funding }}</td>
+                    <td>{{ input.program }}</td>
+                    <td>{{ input.thoughts }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+{% endblock %}

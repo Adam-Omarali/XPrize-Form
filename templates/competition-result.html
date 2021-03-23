@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block main %}
+        <a href="/tksxprize-results"><button class="btn btn-primary" style="margin: 10px;">Back</button></a>
+        <table>
+            <thead>
+                <th>Common Competitor Types</th>
+                <th>Organization</th>
+                <th>Roadblocks</th>
+                <th>Ideas</th>
+            </thead>
+            {% for input in organizers %}
+                <tr>
+                    <td>{{ input.competitors }}</td>
+                    <td>{{ input.organization }}</td>
+                    <td>{{ input.roadblocks }}</td>
+                    <td>{{ input.ideas }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+{% endblock %}

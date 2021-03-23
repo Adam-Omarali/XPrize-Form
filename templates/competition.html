@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Questionnaire
+{% endblock %}
+
+{% block main %}
+        <div class="container">
+            <h3>Hi Competition Organizers! Thanks for taking the time to answer any questions you can!</h3>
+            <p style="color: grey;">Please answer as many questions as you can. We are not apart of XPrize, but we are trying to find ways to improve the contest so we can have higher quality submissions and improve the world.</p>
+            <div class="horizontal"></div>
+        </div>
+
+
+        <form class="" action="" method="POST">
+
+            <div class="form-group" style="width: 100%;">
+                <div class="dis-parent">  
+                    <div class="dis-child vertical"></div>      
+                    <h4 class="dis-child">#1</h4>
+                </div>
+                <div class="select">
+                    <select name="contestants" class="form-control">
+                        <option disabeled value="" selected>What are the main types of people who comepete?</option>
+                        <option value="researchers">Masters/PhD Researchers</option>
+                        <option value="technichal">Technichal people who work at a company</option>
+                        <option value="high school">High school students</option>
+                        <option value="university">University Students</option>
+                        <option value="companies">Companies</option>
+                    </select>
+                </div>
+
+                <div class="dis-parent">  
+                    <div class="dis-child vertical"></div>      
+                    <h4 class="dis-child">#2</h4>
+                    <p class="dis-child">What competitions / organization do you run?</p>
+                </div>
+                <div class="form-group select">
+                    <input type="text" class="form-control" autocomplete="off" name="organization" id="research" placeholder="">
+                </div>
+
+                <div class="dis-parent">  
+                    <div class="dis-child vertical"></div>      
+                    <h4 class="dis-child">#3</h4>
+                    <p class="dis-child">What are majour roadblocks teams face when completing submission and making them high quality?</p>
+                </div>
+                <div class="form-group select">
+                    <input type="text" class="form-control" autocomplete="off" name="barriers" id="research" placeholder="">
+                </div>
+
+                <div class="dis-parent">  
+                    <div class="dis-child vertical"></div>      
+                    <h4 class="dis-child">#4</h4>
+                    <p class="dis-child">What ideas has failed and worked with getting more participants and more higher quality submissions?</p>
+                </div>
+                <div class="form-group select">
+                    <input type="text" class="form-control" autocomplete="off" name="ideas" id="research" placeholder="">
+                </div>
+
+                
+                <input class="btn btn-dark" type=submit value=Submit>
+            </div>
+        </form>
+{% endblock %}

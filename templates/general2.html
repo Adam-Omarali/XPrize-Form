@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Questionnaire
+{% endblock %}
+
+{% block main %}
+        <div class="container">
+            <h3>Thanks for taking the time to answer any questions you can!</h3>
+            <p style="color: grey;">Please answer as many questions as you can. We are not apart of XPrize, but we are trying to find ways to improve the contest so we can have higher quality submissions and improve the world.</p>
+            <div class="horizontal"></div>
+        </div>
+
+
+        <form class="" action="" method="POST">
+
+            <div class="form-group" style="width:100%">
+                <div class="dis-parent">  
+                    <div class="dis-child vertical"></div>      
+                    <h4 class="dis-child">#1</h4>
+                </div>
+                <div class="form-group select">
+                    <input type="text" class="form-control" autocomplete="off" name="country" id="research" placeholder="What country are you from?">
+                </div>
+
+                <div class="dis-parent">  
+                    <div class="dis-child vertical"></div>      
+                    <h4 class="dis-child">#2</h4>
+                </div>
+                <div class="form-group select">
+                    <input type="text" class="form-control" autocomplete="off" name="thoughts" id="research" placeholder="What would make you sign up for XPrize? Any incentives or big barriers">
+                </div>
+
+                <input class="btn btn-dark" type=submit value=Submit>
+
+            </div>
+        
+        
+        </form>
+{% endblock %}

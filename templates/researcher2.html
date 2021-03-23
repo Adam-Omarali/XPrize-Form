@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Questionnaire
+{% endblock %}
+
+{% block main %}
+    <div class="content">
+        <div class="container">
+            <h3>Hi Researcher! Thanks for taking the time to answer any questions you can!</h3>
+            <p style="color: grey;">We have ideas on how to make XPrize better for researchers and we would love your feedback! If only want to answer some questions, answer them then press submit. Any answers are appreciated!</p>
+            <div class="horizontal"></div>
+        </div>
+
+        <form action="" method="POST">
+            <div class="form-group">
+
+                <div class="dis-parent">  
+                    <div class="dis-child vertical"></div>      
+                    <h4 class="dis-child">#7</h4>
+                    <p class="dis-child">If XPrize allowed researchers to mentor 1-5 teams, to help with scientific aspects and engineering...</p>
+                </div>
+                <div class="select">
+                    <select name="mentor" class="form-control">
+                        <option disabeled value="" selected>Would you participate?</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div class="dis-parent">  
+                    <div class="dis-child vertical"></div>      
+                    <h4 class="dis-child">#8</h4>
+                </div>
+                <div class="select">
+                    <select name="often" class="form-control">
+                        <option disabeled value="" selected>How often would you mentor?</option>
+                        <option value="weekly">Once a week or more often</option>
+                        <option value="biweekly">Biweekly</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="bimontly">Bimonthly</option>
+                    </select>
+                </div>
+
+                <div class="dis-parent">  
+                    <div class="dis-child vertical"></div>      
+                    <h4 class="dis-child">#9</h4>
+                    <p class="dis-child">If XPrize has a seperate competition for novel research or a "request for research" board in a focus area and the winning teams got to help implement ideas with existing companies/XPrize teams...</p>
+                </div>
+                <div class="select">
+                    <select name="competition" class="form-control">
+                        <option disabeled value="" selected>Would you comepete?</option>
+                        <option value="yes">Yes</option>
+                        <option value="compensation">Only if their is monetary / equity compensation</option>
+                        <option value="previous research">Only if I did previous research I could submit</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div class="dis-parent">  
+                    <div class="dis-child vertical"></div>      
+                    <h4 class="dis-child">#10</h4>
+                    <p class="dis-child">If XPrize asked you to help develop your research with 3-4 teams into a workable, large-scale solution...</p>
+                </div>
+                <div class="select">
+                    <select name="develop_research" class="form-control">
+                        <option disabeled value="" selected>Would you do so?</option>
+                        <option value="yes">Yes</option>
+                        <option value="compensation">Only if their is monetary compensation</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div class="dis-parent">  
+                    <div class="dis-child vertical"></div>      
+                    <h4 class="dis-child">#11</h4>
+                    <p class="dis-child">What would make you want to work on or help a team in an XPrize Competition? Any incentives we can offer?</p>
+                </div>
+                <div class="form-group select">
+                    <input type="text" class="form-control" name="barriers" id="research" placeholder="">
+                </div>
+
+                <input class="btn btn-dark" type=submit value=Submit>
+            </div>
+        </form>
+    </div>
+{% endblock %}

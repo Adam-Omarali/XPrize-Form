@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Questionnaire
+{% endblock %}
+
+{% block main %}
+
+    <div class="content">
+        <div class="container">
+            <h3>Hi Researcher! Thanks for taking the time to answer any questions you can!</h3>
+            <p style="color: grey;">Please answer as many questions as you can. We are not apart of XPrize, but we are trying to find ways to improve the contest so we can have higher quality submissions and improve the world. To go back to the home page, <a href="index2">click here.</a></p>
+            <div class="horizontal"></div>
+        </div>
+
+
+        <form class="" action="" method="POST">
+
+            <div class="form-group" style="width: 100%;">
+                <div class="dis-parent">  
+                    <div class="dis-child vertical"></div>      
+                    <h4 class="dis-child">#1</h4>
+                </div>
+                <div class="select">
+                    <select name="know" class="form-control">
+                        <option disabeled value="" selected>Did you know about XPrize before?</option>
+                        <option value="yes">I have heard about XPrize before</option>
+                        <option value="no">I did not know what XPrize was</option>
+                    </select>
+                </div>
+
+                <div class="dis-parent">  
+                    <div class="dis-child vertical"></div>      
+                    <h4 class="dis-child">#2</h4>
+                </div>
+                <div class="select">
+                    <select name="sign up" class="form-control">
+                        <option disabeled value="" selected>Would you sign up for XPrize?</option>
+                        <option value="yes">I would sign up for an XPrize competition</option>
+                        <option value="expertise">I would sign up if it is in my area of expertise</option>
+                        <option value="no">I would not sign up</option>
+                        <option value="no">I would not sign up, but am open to help</option>
+                    </select>
+                </div>
+                <div class="dis-parent">  
+                    <div class="dis-child vertical"></div>      
+                    <h4 class="dis-child">#3</h4>
+                </div>
+                <div class="form-group select">
+                    <input type="text" class="form-control" name="research" autocomplete="off" id="research" placeholder="What do you research">
+                </div>
+                <div class="dis-parent">  
+                    <div class="dis-child vertical"></div>      
+                    <h4 class="dis-child">#4</h4>
+                    <h5 class="dis-child">Select Two: I would sign up if I had / could ...</h5>
+                </div>
+
+                <div class="form-group select">
+                    <div class="form-check">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="incentives" value ='Time'> Time
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox"  name="incentives" value="Cost"> Money
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="incentives" value="Need for a Team you Know"> An existing team
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="incentives" value="Other metrics"> Submit a helpful solution that doesn't fall under the metrics
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="incentives" value="Existing Solution"> An existing solution that fits the metrics
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dis-parent">  
+                    <div class="dis-child vertical"></div>      
+                    <h4 class="dis-child">#5</h4>
+                    <h5 class="dis-child">Select Two: I would sign up for/to ...</h5>
+                </div>
+                
+                <div class="form-group select">
+                    <div class="form-check">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="purpose" value="Scientific Discover"> Scientific Discovery
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="purpose" value="Scaling Existing Research"> Scale Exsiting Research that is yet to be implemented
+                        </div>
+                        <div class="form-check"> 
+                            <input class="form-check-input" type="checkbox" name="purpose" value="Building a workable solution"> Build a Workable Solution thats fits the metrics
+                        </div>
+                        <div class="form-check"> 
+                            <input class="form-check-input" type="checkbox" name="purpose" value="Mentor"> Mentor another team
+                        </div>
+                        <div class="form-check"> 
+                            <input class="form-check-input" type="checkbox" name="purpose" value="Join"> Join another team
+                        </div>
+                        <div class="form-check"> 
+                            <input class="form-check-input" type="checkbox" name="purpose" value="Advisor"> Share research and knowledge by being a competition advisor
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dis-parent">  
+                    <div class="dis-child vertical"></div>      
+                    <h4 class="dis-child">#6</h4>
+                </div>
+                <div class="form-group select">
+                    <input type="text" class="form-control" autocomplete="off" name="country" id="research" placeholder="What country are you from?">
+                </div>
+
+                <input class="btn btn-dark" type=submit value=Submit>
+            </div>  
+        </form>
+
+    </div>
+{% endblock %}

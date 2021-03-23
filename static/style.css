@@ -1,0 +1,102 @@
+form {
+    display: flex;
+    align-items: center;
+}
+
+h5 {
+    margin-block: auto;
+}
+
+img {
+    max-width: 100%;
+    max-height: 85px;
+    /* display: block; */
+    margin: auto;
+    padding: 20px;
+}
+
+.btn {
+    margin-left: 20px;
+}
+
+input[type="button"] {
+    margin: 5px;
+}
+
+.container {
+    padding-top: 5px;
+    text-align: center;
+    justify-content: center;
+    clear: both;
+}
+
+label {
+    padding-left: 3px;
+    padding-right: 5px;
+}
+.vertical { 
+    border-left: 6px solid black; 
+    height: 50px;
+    margin-left: 20px;
+}
+
+.horizontal { 
+    border-bottom: 6px solid black; 
+    height: 10px;
+    margin-bottom: 1%;
+}
+
+.dis-parent {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+.dis-child {
+    display: inline;
+    padding: 5px;
+    margin-block: auto;
+}
+
+
+.row > button {
+    padding: 10px;
+    margin: 5px;
+}
+
+.select {
+    padding: 10px;
+    padding-left: 2%;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #f0c2c2;
+ }
+
+ th {
+    background-color: #fff;
+    text-align: left;
+    padding: 8px;
+ }
+
+ td {
+     border: 1px solid black;
+     text-align: left;
+     padding: 8px;
+ }
+
+ tr {
+     border: 1px solid #f0c2c2;
+ }
+
+ .stock{
+     background-color: #ebeced;
+ }
+
+
+
+
+
+
