@@ -14,7 +14,6 @@ app = Flask(__name__)
 
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 # app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL') or 'sqlite:///input.db'
 
 app.config["SESSION_FILE_DIR"] = mkdtemp()
