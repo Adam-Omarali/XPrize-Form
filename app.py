@@ -96,14 +96,6 @@ class Organizer(db.Model):
         self.ideas = ideas
 
 
-def update_date(values):
-    connection = sqlite3.connect("test.db")
-    cursor = connection.cursor()
-    cursor.execute("UPDATE input SET thoughts=? WHERE id=?", values)
-    connection.commit()
-    connection.close()
-
-
 
 @app.route("/")
 def index():
@@ -128,7 +120,7 @@ def researcher():
         db.session.add(values)
         db.session.commit()
         return redirect("/researcher2")
-    return render_template("researcher.html", test=session["user"])
+    return render_template("researcher.html")
 
 @app.route("/researcher2", methods=['GET', 'POST'])
 def researcher2():
