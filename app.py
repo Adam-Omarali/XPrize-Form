@@ -101,7 +101,7 @@ class Organizer(db.Model):
 def index():
     session.clear()
     session["user"] = (str(datetime.datetime.now()) + str(random.randint(1, 100000))) #maybe math.randomed somewhere?
-    return render_template("index.html", test=session["user"])
+    return render_template("index.html", test=session)
 
 
 @app.route("/index2")
@@ -120,7 +120,7 @@ def researcher():
         db.session.add(values)
         db.session.commit()
         return redirect("/researcher2")
-    return render_template("researcher.html", test=session["user"])
+    return render_template("researcher.html", test=session)
 
 @app.route("/researcher2", methods=['GET', 'POST'])
 def researcher2():
