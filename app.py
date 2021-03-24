@@ -99,9 +99,7 @@ class Organizer(db.Model):
 
 @app.route("/")
 def index():
-    session.clear()
-    session["user"] = (str(datetime.datetime.now()) + str(random.randint(1, 100000))) #maybe math.randomed somewhere?
-    return render_template("index.html", test=session)
+    return render_template("index.html")
 
 
 @app.route("/index2")
@@ -116,6 +114,8 @@ def index2():
 @app.route("/researcher", methods=['GET', 'POST'])
 def researcher():
     if request.method == 'POST':
+        session.clear()
+        session["user"] = (str(datetime.datetime.now()) + str(random.randint(1, 100000)))
         values = Researcher(session["user"], str(request.form.getlist("incentives")), str(request.form.getlist("purpose")), request.form.get("know"), request.form.get("sign up"), request.form.get("research"), request.form.get("country"), "", "", "", "", "")
         db.session.add(values)
         db.session.commit()
@@ -138,6 +138,8 @@ def researcher2():
 @app.route("/technichal", methods=['GET', 'POST'])
 def technichal():
     if request.method == "POST":
+        session.clear()
+        session["user"] = (str(datetime.datetime.now()) + str(random.randint(1, 100000)))
         person = "technichal"
         values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, request.form.get("help"), "", "", "", "")
         db.session.add(values)
@@ -148,6 +150,8 @@ def technichal():
 @app.route("/cxo", methods=['GET', 'POST'])
 def cxo():
     if request.method == "POST":
+        session.clear()
+        session["user"] = (str(datetime.datetime.now()) + str(random.randint(1, 100000)))
         person = "cxo"
         values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", request.form.get("funding"), "", "", "")
         db.session.add(values)
@@ -158,6 +162,8 @@ def cxo():
 @app.route("/general", methods=['GET', 'POST'])
 def general():
     if request.method == "POST":
+        session.clear()
+        session["user"] = (str(datetime.datetime.now()) + str(random.randint(1, 100000)))
         person = "general"
         values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", "", "", "")
         db.session.add(values)
@@ -178,6 +184,8 @@ def general2():
 @app.route("/highschool", methods=["GET", "POST"])
 def highschool():
     if request.method == "POST":
+        session.clear()
+        session["user"] = (str(datetime.datetime.now()) + str(random.randint(1, 100000)))
         person = "highschool"
         values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", request.form.get("programs"), "", "")
         db.session.add(values)
@@ -188,6 +196,8 @@ def highschool():
 @app.route("/university", methods=["GET", "POST"])
 def university():
     if request.method == "POST":
+        session.clear()
+        session["user"] = (str(datetime.datetime.now()) + str(random.randint(1, 100000)))
         person = "university"
         values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", request.form.get("programs"), "", "")
         db.session.add(values)
@@ -198,6 +208,8 @@ def university():
 @app.route("/graduate", methods=["GET", "POST"])
 def graduate():
     if request.method == "POST":
+        session.clear()
+        session["user"] = (str(datetime.datetime.now()) + str(random.randint(1, 100000)))
         person = "graduate"
         values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", request.form.get("programs"), "", "")
         db.session.add(values)
