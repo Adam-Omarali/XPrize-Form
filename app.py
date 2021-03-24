@@ -116,7 +116,8 @@ def index2():
 @app.route("/researcher", methods=['GET', 'POST'])
 def researcher():
     if request.method == 'POST':
-        values = Researcher(session["user"], str(request.form.getlist("incentives")), str(request.form.getlist("purpose")), request.form.get("know"), request.form.get("sign up"), request.form.get("research"), request.form.get("country"), "", "", "", "", "")
+        user = session["user"]
+        values = Researcher(user, str(request.form.getlist("incentives")), str(request.form.getlist("purpose")), request.form.get("know"), request.form.get("sign up"), request.form.get("research"), request.form.get("country"), "", "", "", "", "")
         db.session.add(values)
         db.session.commit()
         return redirect("/researcher2")
@@ -125,7 +126,8 @@ def researcher():
 @app.route("/researcher2", methods=['GET', 'POST'])
 def researcher2():
     if request.method == "POST":
-        query = Researcher.query.filter_by(user=session['user']).first()
+        user = session["user"]
+        query = Researcher.query.filter_by(user=user).first()
         query.mentor = request.form.get("mentor")
         query.often = request.form.get("often")
         query.seperate_competition = request.form.get("competition")
