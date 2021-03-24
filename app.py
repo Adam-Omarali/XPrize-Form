@@ -18,7 +18,7 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL') or 'sqlite:///input.db'
 
 app.config["SESSION_FILE_DIR"] = mkdtemp()
-app.config["SESSION_PERMENANT"] = False
+app.config["SESSION_PERMENANT"] = True
 app.config["SESSION_TYPE"] = "filesystem" #now referenced variables using session["name"]
 Session(app)
 
