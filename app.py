@@ -9,7 +9,7 @@ import os
 import sqlite3
 from flask_sqlalchemy import SQLAlchemy
 
-users = []
+
 
 app = Flask(__name__)
 
@@ -100,9 +100,7 @@ class Organizer(db.Model):
 
 @app.route("/")
 def index():
-    session.clear()
     session["user"] = (str(datetime.datetime.now()) + str(random.randint(1, 100000))) #maybe math.randomed somewhere?
-    users.append(session["user"])
     return render_template("index.html")
 
 
@@ -118,7 +116,7 @@ def index2():
 @app.route("/researcher", methods=['GET', 'POST'])
 def researcher():
     if request.method == 'POST':
-        values = Researcher(users[-1], str(request.form.getlist("incentives")), str(request.form.getlist("purpose")), request.form.get("know"), request.form.get("sign up"), request.form.get("research"), request.form.get("country"), "", "", "", "", "")
+        values = Researcher(session["user"], str(request.form.getlist("incentives")), str(request.form.getlist("purpose")), request.form.get("know"), request.form.get("sign up"), request.form.get("research"), request.form.get("country"), "", "", "", "", "")
         db.session.add(values)
         db.session.commit()
         return redirect("/researcher2")
@@ -127,7 +125,7 @@ def researcher():
 @app.route("/researcher2", methods=['GET', 'POST'])
 def researcher2():
     if request.method == "POST":
-        query = Researcher.query.filter_by(user=users[-1]).first()
+        query = Researcher.query.filter_by(user=session['user']).first()
         query.mentor = request.form.get("mentor")
         query.often = request.form.get("often")
         query.seperate_competition = request.form.get("competition")
@@ -141,7 +139,7 @@ def researcher2():
 def technichal():
     if request.method == "POST":
         person = "technichal"
-        values = General(users[-1], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, request.form.get("help"), "", "", "", "")
+        values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, request.form.get("help"), "", "", "", "")
         db.session.add(values)
         db.session.commit()
         return redirect("/general2")
@@ -151,7 +149,7 @@ def technichal():
 def cxo():
     if request.method == "POST":
         person = "cxo"
-        values = General(users[-1], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", request.form.get("funding"), "", "", "")
+        values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", request.form.get("funding"), "", "", "")
         db.session.add(values)
         db.session.commit()
         return redirect("/general2")
@@ -161,7 +159,7 @@ def cxo():
 def general():
     if request.method == "POST":
         person = "general"
-        values = General(users[-1], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", "", "", "")
+        values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", "", "", "")
         db.session.add(values)
         db.session.commit()
         return redirect("/general2")
@@ -170,7 +168,7 @@ def general():
 @app.route("/general2", methods=['GET', 'POST'])
 def general2():
     if request.method == "POST":
-        query = General.query.filter_by(user=users[-1]).first()
+        query = General.query.filter_by(user=session['user']).first()
         query.thoughts = request.form.get("thoughts")
         query.geography = request.form.get("country")
         db.session.commit()
@@ -181,7 +179,7 @@ def general2():
 def highschool():
     if request.method == "POST":
         person = "highschool"
-        values = General(users[-1], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", request.form.get("programs"), "", "")
+        values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", request.form.get("programs"), "", "")
         db.session.add(values)
         db.session.commit()
         return redirect("/general2")
@@ -191,7 +189,7 @@ def highschool():
 def university():
     if request.method == "POST":
         person = "university"
-        values = General(users[-1], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", request.form.get("programs"), "", "")
+        values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", request.form.get("programs"), "", "")
         db.session.add(values)
         db.session.commit()
         return redirect("/general2")
@@ -201,7 +199,7 @@ def university():
 def graduate():
     if request.method == "POST":
         person = "graduate"
-        values = General(users[-1], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", request.form.get("programs"), "", "")
+        values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", request.form.get("programs"), "", "")
         db.session.add(values)
         db.session.commit()
         return redirect("/general2")
@@ -209,7 +207,6 @@ def graduate():
 
 @app.route("/competition", methods=["GET", "POST"])
 def competition():
-    session.clear()
     session["user"] = (str(datetime.datetime.now()) + str(random.randint(1, 100000)))
     if request.method == "POST":
         person = "organizer"
