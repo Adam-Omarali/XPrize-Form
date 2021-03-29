@@ -135,11 +135,26 @@ def researcher2():
         try:
             user = session["user"]
             query = Researcher.query.filter_by(user=user).first()
-            query.mentor = request.form.get("mentor")
-            query.often = request.form.get("often")
-            query.seperate_competition = request.form.get("competition")
-            query.develop_research = request.form.get("develop_research")
-            query.thoughts = request.form.get("barriers")
+            try:
+                query.mentor = request.form.get("mentor")
+            except  AttributeError:
+                query.mentor = "no answer"
+            try:
+                query.often = request.form.get("often")
+            except AttributeError:
+                query.often = "no answer"
+            try:
+                query.seperate_competition = request.form.get("competition")
+            except AttributeError:
+                query.seperate_competition = "no answer"
+            try:
+                query.develop_research = request.form.get("develop_research")
+            except AttributeError:
+                query.develop_research = "no answer"
+            try:
+                query.thoughts = request.form.get("barriers")
+            except:
+                query.thoughts = "no answer"
             db.session.commit()
         except KeyError:
             user = (str(datetime.datetime.now()) + str(random.randint(1, 100000)))
@@ -203,12 +218,19 @@ def general2():
     if request.method == "POST":
         try: 
             query = General.query.filter_by(user=session['user']).first()
-            query.thoughts = request.form.get("thoughts")
-            query.geography = request.form.get("country")
+            try:
+                query.thoughts = request.form.get("thoughts")
+                query.geography = request.form.get("country")
+            except AttributeError:
+                query.thoughts = "no thoughts"
+                try:
+                    query.geography = request.form.get("country")
+                except AttributeError:
+                    query.geography = "no country"
             db.session.commit()
-        except:
+        except KeyError:
             user = (str(datetime.datetime.now()) + str(random.randint(1, 100000)))
-            values = General(user, "", "", "", "", "", "", "", "", request.form.get("thoughts"), request.form.get("country") )
+            values = General(user, "", "", "", "", "", "", "", "", request.form.get("thoughts"), request.form.get("country"))
             db.session.add(values)
             db.session.commit()
         return render_template("thank-you.html")
