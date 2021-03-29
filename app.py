@@ -116,24 +116,36 @@ def index2():
 @app.route("/researcher", methods=['GET', 'POST'])
 def researcher():
     if request.method == 'POST':
-        user = session["user"]
-        values = Researcher(user, str(request.form.getlist("incentives")), str(request.form.getlist("purpose")), request.form.get("know"), request.form.get("sign up"), request.form.get("research"), request.form.get("country"), "", "", "", "", "")
-        db.session.add(values)
-        db.session.commit()
+        try:
+            user = session["user"]
+            values = Researcher(user, str(request.form.getlist("incentives")), str(request.form.getlist("purpose")), request.form.get("know"), request.form.get("sign up"), request.form.get("research"), request.form.get("country"), "", "", "", "", "")
+            db.session.add(values)
+            db.session.commit()
+        except KeyError:
+            user = (str(datetime.datetime.now()) + str(random.randint(1, 100000)))
+            values = Researcher(user, str(request.form.getlist("incentives")), str(request.form.getlist("purpose")), request.form.get("know"), request.form.get("sign up"), request.form.get("research"), request.form.get("country"), "", "", "", "", "")
+            db.session.add(values)
+            db.session.commit()
         return redirect("/researcher2")
     return render_template("researcher.html", test=session)
 
 @app.route("/researcher2", methods=['GET', 'POST'])
 def researcher2():
     if request.method == "POST":
-        user = session["user"]
-        query = Researcher.query.filter_by(user=user).first()
-        query.mentor = request.form.get("mentor")
-        query.often = request.form.get("often")
-        query.seperate_competition = request.form.get("competition")
-        query.develop_research = request.form.get("develop_research")
-        query.thoughts = request.form.get("barriers")
-        db.session.commit()
+        try:
+            user = session["user"]
+            query = Researcher.query.filter_by(user=user).first()
+            query.mentor = request.form.get("mentor")
+            query.often = request.form.get("often")
+            query.seperate_competition = request.form.get("competition")
+            query.develop_research = request.form.get("develop_research")
+            query.thoughts = request.form.get("barriers")
+            db.session.commit()
+        except KeyError:
+            user = (str(datetime.datetime.now()) + str(random.randint(1, 100000)))
+            values = Researcher(user, "", "", "", "", "", "", request.form.get("mentor"), request.form.get("often"), request.form.get("competition"), request.form.get("develop_research"), request.form.get("barriers"))
+            db.session.add(values)
+            db.session.commit()
         return render_template("thank-you.html")
     return render_template("researcher2.html")
 
@@ -141,9 +153,16 @@ def researcher2():
 def technichal():
     if request.method == "POST":
         person = "technichal"
-        values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, request.form.get("help"), "", "", "", "")
-        db.session.add(values)
-        db.session.commit()
+        try:
+            user = session["user"]
+            values = General(user, request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, request.form.get("help"), "", "", "", "")
+            db.session.add(values)
+            db.session.commit()
+        except KeyError:
+            user = (str(datetime.datetime.now()) + str(random.randint(1, 100000)))
+            values = General(user, request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, request.form.get("help"), "", "", "", "")
+            db.session.add(values)
+            db.session.commit()
         return redirect("/general2")
     return render_template("technichal.html")
 
@@ -151,9 +170,15 @@ def technichal():
 def cxo():
     if request.method == "POST":
         person = "cxo"
-        values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", request.form.get("funding"), "", "", "")
-        db.session.add(values)
-        db.session.commit()
+        try:
+            values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", request.form.get("funding"), "", "", "")
+            db.session.add(values)
+            db.session.commit()
+        except KeyError:
+            user = (str(datetime.datetime.now()) + str(random.randint(1, 100000)))
+            values = General(user, request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", request.form.get("funding"), "", "", "")
+            db.session.add(values)
+            db.session.commit()
         return redirect("/general2")
     return render_template("cxo.html")
 
@@ -161,19 +186,31 @@ def cxo():
 def general():
     if request.method == "POST":
         person = "general"
-        values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", "", "", "")
-        db.session.add(values)
-        db.session.commit()
+        try:
+            values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", "", "", "")
+            db.session.add(values)
+            db.session.commit()
+        except KeyError:
+            user = (str(datetime.datetime.now()) + str(random.randint(1, 100000)))
+            values = General(user, request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", "", "", "")
+            db.session.add(values)
+            db.session.commit()
         return redirect("/general2")
     return render_template("general.html")
 
 @app.route("/general2", methods=['GET', 'POST'])
 def general2():
     if request.method == "POST":
-        query = General.query.filter_by(user=session['user']).first()
-        query.thoughts = request.form.get("thoughts")
-        query.geography = request.form.get("country")
-        db.session.commit()
+        try: 
+            query = General.query.filter_by(user=session['user']).first()
+            query.thoughts = request.form.get("thoughts")
+            query.geography = request.form.get("country")
+            db.session.commit()
+        except:
+            user = (str(datetime.datetime.now()) + str(random.randint(1, 100000)))
+            values = General(user, "", "", "", "", "", "", "", "", request.form.get("thoughts"), request.form.get("country") )
+            db.session.add(values)
+            db.session.commit()
         return render_template("thank-you.html")
     return render_template("general2.html")
 
@@ -181,9 +218,15 @@ def general2():
 def highschool():
     if request.method == "POST":
         person = "highschool"
-        values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", request.form.get("programs"), "", "")
-        db.session.add(values)
-        db.session.commit()
+        try:
+            values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", request.form.get("programs"), "", "")
+            db.session.add(values)
+            db.session.commit()
+        except KeyError:
+            user = (str(datetime.datetime.now()) + str(random.randint(1, 100000)))
+            values = General(user, request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", request.form.get("programs"), "", "")
+            db.session.add(values)
+            db.session.commit()
         return redirect("/general2")
     return render_template("student.html")
 
@@ -191,9 +234,15 @@ def highschool():
 def university():
     if request.method == "POST":
         person = "university"
-        values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", request.form.get("programs"), "", "")
-        db.session.add(values)
-        db.session.commit()
+        try:
+            values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", request.form.get("programs"), "", "")
+            db.session.add(values)
+            db.session.commit()
+        except:
+            user = (str(datetime.datetime.now()) + str(random.randint(1, 100000)))
+            values = General(user, request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", request.form.get("programs"), "", "")
+            db.session.add(values)
+            db.session.commit()
         return redirect("/general2")
     return render_template("student.html")
 
@@ -201,9 +250,15 @@ def university():
 def graduate():
     if request.method == "POST":
         person = "graduate"
-        values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", request.form.get("programs"), "", "")
-        db.session.add(values)
-        db.session.commit()
+        try:
+            values = General(session["user"], request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", request.form.get("programs"), "", "")
+            db.session.add(values)
+            db.session.commit()
+        except:
+            user = (str(datetime.datetime.now()) + str(random.randint(1, 100000)))
+            values = General(user, request.form.get("know"), request.form.get("sign up"), str(request.form.getlist("factors")), request.form.get("all"), person, "", "", request.form.get("programs"), "", "")
+            db.session.add(values)
+            db.session.commit()
         return redirect("/general2")
     return render_template("student.html")
 
