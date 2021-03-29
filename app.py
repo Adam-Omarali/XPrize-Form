@@ -220,13 +220,12 @@ def general2():
             query = General.query.filter_by(user=session['user']).first()
             try:
                 query.thoughts = request.form.get("thoughts")
-                query.geography = request.form.get("country")
             except AttributeError:
                 query.thoughts = "no thoughts"
-                try:
-                    query.geography = request.form.get("country")
-                except AttributeError:
-                    query.geography = "no country"
+            try:
+                query.geography = request.form.get("country")
+            except AttributeError:
+                query.geography = "no country"
             db.session.commit()
         except KeyError:
             user = (str(datetime.datetime.now()) + str(random.randint(1, 100000)))
